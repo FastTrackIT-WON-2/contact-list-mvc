@@ -13,6 +13,8 @@ namespace ContactListMvc.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        private int i = 0;
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -21,6 +23,17 @@ namespace ContactListMvc.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Increment()
+        {
+            i++;
+            return Content($"After increment result is: {i}");
+        }
+
+        public IActionResult Throw()
+        {
+            throw new ArgumentException("Bad route");
         }
 
         public IActionResult Privacy()
